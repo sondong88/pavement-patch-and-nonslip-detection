@@ -1,0 +1,4 @@
+The patching detection model name: best.pt
+However, it is bigger than 25 MB, so cannot upload directly on Github.
+Please use the below link and download and then put model into pytorch detection folder
+https://drive.google.com/file/d/1x29W72OcK4djJuhbr31la0axOHEdqPT_/view?usp=drive_link
