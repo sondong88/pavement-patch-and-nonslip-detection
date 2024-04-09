@@ -1,1 +1,12 @@
 
+[project]
+name = "iris_web_v02"
+version = "0.1.0"
+description = "iris_web_v02"
+dependencies = [
+    "flask",
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
