@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    <link rel="icon" href="{{ url_for('static', filename='iRIS.png')}}" type="image/x-icon">
+
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css')}}">
+
+    <style>
+        @keyframes moveLeftToRight {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+
+        .nav-link-item:active,
+        .nav-link-item:hover {
+            background-color: #007bff; /* Change to the color you prefer */
+            color: #fff; /* Change text color to contrast with the background */
+            /* You can add other styles as needed */
+        }
+
+        .nav-link-item.active {
+            background-color: #a8a0da; /* Change to the color you prefer */
+            color: #fff; /* Change text color to contrast with the background */
+            /* You can add other styles as needed */
+        }
+
+    </style>
+
+    {% block head %} {% endblock %}
+</head>
+<body>
+        <h1 style="color: #007bff" align="center">Welcome to Web-base for Pavement Patching Detection</h1>
+<!--    <h1 style="color: #007bff; text-align: center; font-family: 'Your Font Here', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); animation: moveLeftToRight 10s linear infinite;">Welcome to Iris company website</h1>-->
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">IRIS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link nav-link-item" id="home" href="/home">Home</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link nav-link-item" id="logout" href="/logout">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-item" id="ManualChecking" href="/manual-checking">ManualChecking</a>
+          </li>
+           <li class="nav-item">
+               <a class="nav-link nav-link-item" id="iCrack" href="/i-crack">PatchingDetection</a>
+           </li>
+        {% else %}
+        <li class="nav-item">
+        <a class="nav-link nav-link-item" id="login" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link nav-link-item" id="signup" href="/signup">Signup</a>
+        </li>
+        {% endif %}
+
+    </ul>
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div>
+        {% block content %} {% endblock %}
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
+
+<!-- Include jQuery if not already included -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-7U4gW5hF04l02TmnMdyc6HZz1DD7/ghcdGf8Ao3Yq29meeg8yd9eZzW5vRoRVf5F5" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        // Get the current page URL
+        var currentUrl = window.location.href;
+
+        // Iterate through the navigation links
+        $(".nav-link-item").each(function () {
+            var linkUrl = $(this).attr("href");
+            if (currentUrl.includes(linkUrl)) {
+                // Add a class to the active link
+                $(this).addClass("active");
+            }
+        });
+    });
+</script>
+
+

@@ -1,0 +1,221 @@
+
+/* Left column */
+.image-name-list {
+  width: 25%;
+  height: 1000px;
+  float: left; /* Add float left to make them align in columns */
+  border: 5px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+/* Middle column */
+.image-control {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    width: 50%;
+    height: 1000px;
+    float: left; /* Add float left to make them align in columns */
+    border: 5px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+/* right column */
+.label-information {
+  width: 20%;
+  height: 1000px;
+  float: left; /* Add float left to make them align in columns */
+  border: 5px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+   margin-left: 10px;
+}
+
+
+.load-image-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+    left: 10%;
+}
+
+.image-name-list-frame{
+    width: 100%;
+    height: 92%;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/*.image-container {*/
+/*    position: absolute;*/
+/*    overflow: hidden; !* Clip the image inside the frame *!*/
+/*    width: 600px;*/
+/*    height: 600px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    margin-top: 60px; !* Add some margin to the top to create space for the buttons *!*/
+/*}*/
+
+.image-container {
+    position: absolute;
+    /*overflow: auto; !* Enable scrolling for the image container *!*/
+    /*max-width: 600px; !* Set a maximum width of 600px *!*/
+    /*max-height: 1000px; !* Set a maximum height of 600px *!*/
+    border: 0;
+    /*border-radius: 5px;*/
+    margin-top: 10px;
+    /*box-sizing: border-box; !* Include borders and padding in the width *!*/
+}
+
+
+#image-list li {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+#image-list li:hover {
+    background-color: #f2f2f2;
+}
+
+/* Style for the selected image name */
+#image-list li.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+
+.image-button {
+    position: relative; /* Position the button container relative to the image-display-area */
+    top: 0px; /* Adjust the top value to control the vertical position */
+    display: block;
+    margin-top: 0px
+}
+/* Style for the Save button */
+.button {
+    background-color: #28a745;
+    color: white;
+    border: 1px solid #ffffff;
+    padding: 4px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+/* Style for the Save button on hover */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the Save button on active (when clicked) */
+button:active {
+    background-color: #003966;
+}
+
+/* for drawing boxes */
+.box {
+    position: absolute;
+    /*border: 2px solid;*/
+    border: 2px solid red;
+}
+
+
+/* label of the box */
+.label {
+    position: absolute;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+.label-list-frame {
+    width: 100%;
+    height: 92%;
+    overflow-y: auto;
+}
+
+.label-container {
+    position: relative; /* Change the position to absolute */
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    height: 100px;
+}
+
+/* Style for the selected label name */
+#label-list-list li.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+#label-list li {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+#label-list li:hover {
+    background-color: #f2f2f2;
+}
+
+/* Add this CSS class for transparent boxes */
+.transparent-box {
+    opacity: 0.5; /* You can adjust the opacity value as needed */
+    background: rgba(104, 155, 134, 0.64);
+}
+
+.selected-box {
+    border: 2px solid red; /* Set a border to highlight the selected box */
+}
+
+
+/* Style for the highlighted box */
+.highlight-box {
+    border-color: #ff0000;
+}
+
+/* Resizing handles */
+.box-resize-handle {
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    position: absolute;
+}
+
+/* Resizing handle positions */
+.box-top-left {
+    left: -5px;
+    top: -5px;
+    cursor: nw-resize;
+}
+
+.box-top-right {
+    right: -5px;
+    top: -5px;
+    cursor: ne-resize;
+}
+
+.box-bottom-left {
+    left: -5px;
+    bottom: -5px;
+    cursor: sw-resize;
+}
+
+.box-bottom-right {
+    right: -5px;
+    bottom: -5px;
+    cursor: se-resize;
+}

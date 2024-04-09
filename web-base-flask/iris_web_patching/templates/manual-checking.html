@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %} Manual Checking {% endblock %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='manual-checking.css')}}">
+{% endblock %}
+
+{% block content %}
+<!-- begin bar menu-->
+<div class="container-fluid pt-1 pb-1 bg-dark " >
+    <button type="button" class="btn btn-outline-light btn-sm button" title="Import Images" id="load-image-button">Load Images</button>
+        <input type="file" id="image-input" style="display: none" multiple>
+
+    <button class="btn btn-outline-light btn-sm button" id="load-annotation-button" >Load Annotations</button>
+        <input type="file" id="annotation-input" style="display: none" multiple>
+
+    <button type="button" class="btn btn-outline-light btn-sm button" id="previous-image-button">Previous Image</button>
+    <button type="button" class="btn btn-outline-light btn-sm button" id="next-image-button">Next Image</button>
+
+    <button type="button" class="btn btn-outline-light btn-sm button" onclick="saveCoordinates()">Download Results</button>
+
+    <button type="button" class="btn btn-outline-light btn-sm button">Settings</button>
+    <button type="button" class="btn btn-outline-light btn-sm button">Help</button>
+</div>
+
+
+<!-- end bar menu -->
+
+<div class="main-container" id="main-container">
+    <div class="image-name-list" id="image-name-list">
+        <!-- Image list frame -->
+        <div class="image-name-list-frame" id="image-name-list-frame">
+            <h2>Image List</h2>
+            <ol class="image-list" id="image-list">
+                <!-- Image names will be displayed here -->
+            </ol>
+        </div>
+    </div>
+
+    <div class="image-control" id="image-control">
+
+        <!-- Image container -->
+        <div class="image-container" id="image-container">
+            <!-- Image will be displayed here -->
+        </div>
+
+        <!-- Label input -->
+        <div class="label-container" id="label-container">
+            <label for="label-input" style="display: block">Enter Label for Box:</label>
+            <input type="text" id="label-input" onkeypress="handleLabelInput(event)">
+<!--            <input type="text" id="label-input" onblur="handleLabelInput(event)" onkeypress="handleLabelInput(event)">-->
+        </div>
+
+        <!-- Modify label input -->
+        <div class="label-container" id="label-container-edit">
+            <label for="label-input-edit" style="display: block">Enter New Label for Box:</label>
+            <input type="text" id="label-input-edit" onkeypress="handleLabelInputEdit(event)">
+        </div>
+
+    </div>
+
+    <div class="label-information" id="label-information">
+        <h3>Label Information</h3>
+
+        <div id="current-image-info">
+          <p><strong>Image Name:</strong> <span id="info-image-name">No image selected</span></p>
+        </div>
+
+        <div id="label-list-frame" class="label-list-frame">
+            <h3>Label List</h3>
+                <ul id="label-list">
+                <!-- Label names will be displayed here -->
+                </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='manualChecking.js')}}"></script>
+{% endblock %}

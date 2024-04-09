@@ -1,0 +1,30 @@
+
+/* Style for the selected image name */
+#image-list li {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+#image-list li:hover {
+    background-color: #f2f2f2;
+}
+
+/* Style for the selected image name */
+#image-list li.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Style for the Save button */
+.button {
+    background-color: #7287de;
+    color: white;
+    border: 1px solid #ffffff;
+    padding: 4px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+
+
