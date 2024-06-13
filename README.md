@@ -9,3 +9,6 @@ We provide the code for training and testing pavement patch and nonslip detectio
 
 
 ![DEPP_web_3](https://github.com/sondong88/pavement-patch-and-nonslip-detection/assets/50520305/c3d0b6b8-0c92-41b7-9f1c-ac93341e116b)
+
+2. The proposed architecture:
+   
